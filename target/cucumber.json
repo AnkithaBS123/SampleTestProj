@@ -1,0 +1,78 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "To Search for the cheapest flight",
+        "description": "",
+        "id": "emirates-flight;to-search-for-the-cheapest-flight",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 11748187895,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I navigate to \"https://www.emirates.com/\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "https://www.emirates.com/",
+                  "offset": 15
+                }
+              ],
+              "location": "FlightSearchResults.iNavigateTo(String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 150513005208,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I Search for flight from \"Hyderabad\" and to \"Dubai\" on Date \"03  Feb 20\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Hyderabad",
+                  "offset": 26
+                },
+                {
+                  "val": "Dubai",
+                  "offset": 45
+                },
+                {
+                  "val": "03  Feb 20",
+                  "offset": 61
+                }
+              ],
+              "location": "FlightSearchResults.iSearchForFlightFromAndToOnDate(String,String,String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 5785961844,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "it should display the flight results and display the cheapest flight number",
+            "match": {
+              "location": "FlightSearchResults.itShouldDisplayTheFlightResultsAndDisplayTheCheapestFlightNumber()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Emirates Flight",
+    "description": "",
+    "id": "emirates-flight",
+    "keyword": "Feature",
+    "uri": "SearchFlight/SearchFlights.feature"
+  }
+]
