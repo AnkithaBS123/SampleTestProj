@@ -48,10 +48,10 @@ public class FlightSearchResults {
 
         Thread.sleep(5000);
         Boolean found=false;
-//        List<WebElement> gPrice=driver.findElements(By.xpath("//div[@data-ts-comp='FbrOption']"));
-        for (int i=1;i<=3;i++)
+        List<WebElement> gTotalCount=driver.findElements(By.xpath("//div[@class='ts-fbr-flight-list-row__header-col ts-fbr-flight-list-row__panel']"));
+        for (int i=1;i<=gTotalCount.size();i++)
         {
-            String gLowerText=driver.findElement(By.xpath("(//div[@data-ts-comp='FbrOption'])["+i+"]")).getText();
+            String gLowerText=driver.findElement(By.xpath("(//div[contains(@class,'ts-fbr-flight-list-row__header-col RPA ts-fbr-flight-list')])["+i+"]")).getText();
             if (gLowerText.contains("Lowest price"))
             {
                 String gFlightNumber=driver.findElement(By.xpath("(//div[@class='ts-fbr-flight-list-row__header-col ts-fbr-flight-list-row__panel'])["+i+"]//p[@class='ts-fip__aircraft']")).getText();
@@ -67,35 +67,5 @@ public class FlightSearchResults {
 
     }
 
-    public void selectDate(String monthyear, String Selectday) throws InterruptedException
-    {
-        List<WebElement> elements = driver.findElements(By.xpath("//div[@class='ui-datepicker-title']/span[1]"));
 
-        for (int i=0; i<elements.size();i++)
-        {
-            System.out.println(elements.get(i).getText());
-            //Selecting the month
-            if(elements.get(i).getText().equals(monthyear))
-            {
-                //Selecting the date
-                List<WebElement> days = driver.findElements(By.xpath("//div[@class='ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-datepicker-multi ui-datepicker-multi-2']/div[2]/table/tbody/tr/td/a"));
-
-                for (WebElement d:days)
-                {
-                    System.out.println(d.getText());
-                    if(d.getText().equals(Selectday))
-                    {
-                        d.click();
-                        Thread.sleep(10000);
-                        return;
-                    }
-                }
-
-            }
-
-        }
-        driver.findElement(By.xpath("//div[@class='ui-datepicker-inline ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-datepicker-multi ui-datepicker-multi-2']/div[2]/div/a/span")).click();
-        selectDate(monthyear,Selectday);
-
-    }
 }
