@@ -54,8 +54,9 @@ public class FlightSearchResults {
             String gLowerText=driver.findElement(By.xpath("(//div[contains(@class,'ts-fbr-flight-list-row__header-col RPA ts-fbr-flight-list')])["+i+"]")).getText();
             if (gLowerText.contains("Lowest price"))
             {
+                String gLowestPrice=driver.findElement(By.xpath("//span[@class='summary-curr-only']")).getText();
                 String gFlightNumber=driver.findElement(By.xpath("(//div[@class='ts-fbr-flight-list-row__header-col ts-fbr-flight-list-row__panel'])["+i+"]//p[@class='ts-fip__aircraft']")).getText();
-                System.out.println("The cheapest Flight Number is "+gFlightNumber );
+                System.out.println("The cheapest Flight Number is "+gFlightNumber +" and the price is INR" +gLowestPrice.trim());
                 found=true;
             }
 
